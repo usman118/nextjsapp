@@ -1,7 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import HOC from "@/components/HOC";
 import { fetchData } from "@/components/FetchData";
-
 export default function Home() {
   type Data = {
     name: string;
@@ -10,12 +9,9 @@ export default function Home() {
     phone: string;
     website: string;
   };
-
   const [data, setData] = useState({} as Data);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    // fname.setFname("John");
-    // lname.setLname("Doe");
     if (!loading) {
       fetchData().then((res) => {
         setData(res);
